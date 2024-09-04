@@ -10,11 +10,15 @@ abstract class Car{ // Abstract class
     }
 }
 
-// The class that extends the abstract class must implement the abstract method
-class WagonR extends Car{ 
+// The class that extends the abstract class must implement the abstract method, unless it is also an abstract class
+abstract class WagonR extends Car{ 
     public void drive(){ // Overriding the abstract method
         System.out.println("WagonR is driving");
     }
+}
+
+// Concrete class
+class updateWagonR extends WagonR{ 
     public void fly(){
         System.out.println("WagonR is flying");
     }
@@ -24,7 +28,7 @@ public class AbstractKeyword {
     public static void main(String[] args) {
         
         // Car obj = new Car(); // Error: Car is abstract; cannot be instantiated
-        Car obj = new WagonR(); // Upcasting
+        Car obj = new updateWagonR(); // Upcasting
         obj.drive();
         obj.playMusic();
         obj.fly();
